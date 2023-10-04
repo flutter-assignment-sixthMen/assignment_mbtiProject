@@ -10,6 +10,7 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
+  List<mbtiResult> mbtiResults = makeData();
   var pageController = PageController(viewportFraction: 1.0);
   int currentQuestionIndex = 0;
   Map<String, int> scores = {
@@ -47,6 +48,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(mbtiResults);
     // 퀴즈 종료
     if (currentQuestionIndex >= questions.length) {
       result += (scores['E']! > scores['I']!) ? 'E' : 'I';

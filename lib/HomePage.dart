@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
+import 'package:mbti_project/QuizScreen.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
@@ -68,7 +71,10 @@ class homePage extends StatelessWidget {
               padding: EdgeInsets.all(50),
               child: ElevatedButton(
                 onPressed: () {
-                  // 버튼이 클릭될 때 수행할 동작 추가
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => QuizScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.blue, // 파란색 배경색
