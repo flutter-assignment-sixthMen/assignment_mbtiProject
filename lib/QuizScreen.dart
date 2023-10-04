@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mbti_project/questionCard.dart';
+import 'package:mbti_project/QuestionCard.dart';
 import 'models/Question.dart';
 import 'models/mbtiResults.dart';
 import 'package:collection/collection.dart';

@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MBTI 테스트',
-      home: QuizScreen(),
+      theme: ThemeData.light(),
+      home: homePage()
     );
   }
 }
+
