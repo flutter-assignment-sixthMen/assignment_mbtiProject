@@ -1,6 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:mbti_project/questionCard.dart';
 import 'models/Question.dart';
 import 'models/mbtiResults.dart';
 import 'package:collection/collection.dart';
@@ -28,6 +29,7 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
+  var pageController = PageController(viewportFraction: 1.0);
   int currentQuestionIndex = 0;
   Map<String, int> scores = {
     'E': 0,
@@ -87,22 +89,33 @@ class _QuizScreenState extends State<QuizScreen> {
 
     // 퀴즈 진행중
     return Scaffold(
-      appBar: AppBar(
-        title: Text('MBTI 테스트'),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(16),
-            child:
-                Text(currentQuestion.question, style: TextStyle(fontSize: 16)),
-          ),
-          ...currentQuestion.answers.map((answer) => ElevatedButton(
-                onPressed: () => answerQuestion(answer.type),
-                child: Text(answer.text),
-              ))
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text('MBTI 테스트'),
+        ),
+        body: PageView.builder(
+          controller: pageController,
+          itemCount: questions.length,
+          itemBuilder: ((context, index) => Questioncard(
+              question: currentQuestion, answerQuestion: answerQuestion)),
+        ));
   }
 }
+
+
+
+
+
+
+// Column(
+//         children: [
+//           Padding(
+//             padding: EdgeInsets.all(16),
+//             child:
+//                 Text(currentQuestion.question, style: TextStyle(fontSize: 16)),
+//           ),
+//           ...currentQuestion.answers.map((answer) => ElevatedButton(
+//                 onPressed: () => answerQuestion(answer.type),
+//                 child: Text(answer.text),
+//               ))
+//         ],
+//       ),
