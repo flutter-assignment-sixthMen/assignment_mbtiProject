@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_key_in_widget_constructors, library_private_types_in_public_api, depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:mbti_project/QuestionCard.dart';
 import 'models/Question.dart';
