@@ -55,6 +55,7 @@ class _QuizScreenState extends State<QuizScreen> {
       result += (scores['S']! > scores['N']!) ? 'S' : 'N';
       result += (scores['T']! > scores['F']!) ? 'T' : 'F';
       result += (scores['J']! > scores['P']!) ? 'J' : 'P';
+      // print(scores);
       findResult();
       return Scaffold(
         appBar: AppBar(title: Text('Result')),
